@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMVCMono", "AspNetMVCMono\AspNetMVCMono.csproj", "{BAEF9F44-575B-4BE3-BD6F-7FD952B48953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMVCMono.Tests", "AspNetMVCMono.Tests\AspNetMVCMono.Tests.csproj", "{A729B202-E148-40E5-8000-BDE5A8540BD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAEF9F44-575B-4BE3-BD6F-7FD952B48953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEF9F44-575B-4BE3-BD6F-7FD952B48953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEF9F44-575B-4BE3-BD6F-7FD952B48953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEF9F44-575B-4BE3-BD6F-7FD952B48953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A729B202-E148-40E5-8000-BDE5A8540BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A729B202-E148-40E5-8000-BDE5A8540BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A729B202-E148-40E5-8000-BDE5A8540BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A729B202-E148-40E5-8000-BDE5A8540BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
