@@ -1,1 +1,100 @@
-﻿<h2>Welcome2 to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+﻿<html>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+                <link rel="stylesheet" type="text/css" href="css/style.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+             </head>
+             <h1>Valor a Doar</h1>
+             <input type="number" name="valor" id="valor" value="0" onclick="calcular()" onblur="calcular()"/>
+    <ul id="sliders" item-width="200px">
+        <li>
+            ONG: 1
+            <div class="slider"></div>
+            R$<span class="value">0.00</span>
+        </li>
+        <li>
+            ONG: 2
+            <div class="slider"></div>
+           R$ <span class="value" >0.00</span>
+        </li>
+        <li>
+            ONG: 3
+            <div class="slider"></div>
+           R$ <span class="value">0.00</span>
+        </li>
+        <li>
+            ONG: 4
+            <div class="slider">0</div>
+            R$<span class="value">0</span>
+        </li>
+    </ul>
+    <button type="submit" onclick="doar()">Doar!</button> 
+
+    <script> 
+    function calcular()
+    {  
+            var sliders = $("#sliders .slider");
+  var availableTotal = valor.value;
+  debugger;
+
+  sliders.each(function() {
+      var init_value = parseInt($(this).text());
+  debugger;
+  if (isNaN(init_value))
+  {
+      init_value = 0;
+  }
+      $(this).siblings('.value').text(init_value);
+  
+      $(this).empty().slider({
+          value: init_value,
+          min: 0.01,
+          max: availableTotal,
+          range: "max",
+          step: 0.01,
+          animate: 0,
+          slide: function(event, ui) {
+              
+              // Update display to current value
+              $(this).siblings('.value').text(ui.value);
+  
+              // Get current total
+              var total = 0;
+  
+              sliders.not(this).each(function() {
+                  total += $(this).slider("option", "value");
+              });
+  
+              // Need to do this because apparently jQ UI
+              // does not update value until this event completes
+              total += ui.value;
+  
+              var delta = availableTotal - total;
+              
+              // Update each slider
+              sliders.not(this).each(function() {
+                  var t = $(this),
+                      value = t.slider("option", "value");
+  
+                  var new_value = value + (delta/2);
+                  
+                  if (new_value < 0 || ui.value == 30.00) 
+                      new_value = 0;
+                  if (new_value > 30.00) 
+                      new_value = 30.00;
+  
+                  t.siblings('.value').text(parseFloat(new_value.toFixed(2)));
+                  t.slider('value', parseFloat(new_value.toFixed(2)));
+              });
+          }
+      });
+  });
+}
+  function doar() {
+      alert("Você doou R$" + valor.value + ".00");
+      
+  }
+                  </script>
+</html>
